@@ -13,11 +13,14 @@ This repository contains a Laravel 12 application configured to run within Docke
    ```bash
    git clone <repository-url>
    cd AppCircle
+   rn .env.example .env
    ```
 
 2. Build and launch the containers:
    ```bash
-   docker-compose up -d --build
+   make setup
+   docker exec -it <container_id_of_web> bash
+   php artisan db:seed --class=AppSeeder
    ```
 
 3. Access the application at [http://localhost:8000](http://localhost:8000)
@@ -30,11 +33,7 @@ This repository contains a Laravel 12 application configured to run within Docke
 - **phppgadmin**: Web-based PostgreSQL administration tool accessible at http://localhost:8080
 
 ## Database Credentials
-
-- Database: `appcircle`
-- User: `appcircle`
-- Password: `password`
-- Port: `5432`
+- Reference the .env file
 
 ## Development Tips
 
