@@ -3,8 +3,8 @@ FROM php:8.2-apache as web
 
 # Install Additional System Dependencies
 RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    zip
+    git unzip curl zip libzip-dev libpng-dev nodejs npm libpq-dev \
+    && docker-php-ext-install zip pdo pdo_mysql pdo_pgsql pgsql
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -32,6 +32,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Install project dependencies
 RUN composer install
+
+# RUN npm install && npm run build
+RUN npm install && npm run build
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
