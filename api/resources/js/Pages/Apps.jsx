@@ -19,8 +19,8 @@ export default function Apps({ auth, apps }) {
                             >
                                 <div className="w-[260px] bg-white p-4 m-4 shadow-sm sm:rounded">
                                     <div className="flex items-center space-x-4">
-                                        <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
-                                            <img src={app.icon} alt={app.name} className="w-12 h-12 rounded-full" />
+                                        <div className="w-12 h-9 bg-gray-300 rounded-full flex items-center justify-center">
+                                            <img src={app.icon} alt={app.name} className="w-12 h-9 rounded-full" />
                                         </div>
                                         <div>
                                             <h3 className="text-lg font-semibold text-gray-900">{app.name}</h3>
