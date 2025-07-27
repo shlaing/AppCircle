@@ -14,7 +14,9 @@ services:
       - db
     networks:
       - appcircle-network
-  
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
   db:
     image: postgres:15
     container_name: appcircle-db
@@ -45,8 +47,20 @@ services:
     networks:
       - appcircle-network
 
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    command: serve && run llama3
+    networks:
+      - appcircle-network
+
 volumes:
   dbdata:
+  ollama_data:
 
 networks:
   appcircle-network:

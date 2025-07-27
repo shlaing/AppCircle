@@ -10,7 +10,7 @@ export default function Apps({ auth, apps }) {
         >
             <Head title="Apps" />
 
-            <div className="py-12">
+            <div className="py-3">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="flex flex-row flex-wrap">
                         {apps.map((app) => (

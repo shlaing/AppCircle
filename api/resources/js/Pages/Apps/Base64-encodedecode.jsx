@@ -42,10 +42,10 @@ export default function Base64EncodeDecode({ auth, app }) {
         >
             <Head title={app.name} />
 
-            <div className="py-12">
+            <div className="py-3">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="flex flex-row flex-wrap">
-                        <div className="w-full bg-white p-4 m-4 shadow-sm sm:rounded">
+                        <div className="w-full bg-white p-4 m-0 shadow-sm sm:rounded">
                             <h1 className="text-2xl font-bold text-center text-gray-800">Base64 Encoder / Decoder</h1>
 
                             <textarea

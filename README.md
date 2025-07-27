@@ -18,7 +18,7 @@ This repository contains a Laravel 12 application configured to run within Docke
 
 2. Build and launch the containers:
    ```bash
-   make setup
+   make setup or .\setup.bat
    docker exec -it <container_id_of_web> bash
    php artisan db:seed --class=AppSeeder
    ```

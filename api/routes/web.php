@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AppsController;
+use App\Http\Controllers\OllamaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -19,9 +20,13 @@ use Inertia\Inertia;
 
 Route::get('/', function () { return Redirect::route('login'); });
 
+Route::post('/ollama/ask', [OllamaController::class, 'ask'])->name('ollama.ask');
+Route::post('/ollama/stream', [OllamaController::class, 'stream'])->name('ollama.stream');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/apps', [AppsController::class, 'index'])->name('apps');
     Route::get('/apps/{app}', [AppsController::class, 'show'])->name('apps.show');
+    Route::get('/ollama', [OllamaController::class, 'index'])->name('ollama');
 });
 
 Route::middleware('auth')->group(function () {
